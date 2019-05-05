@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/tables.css}"/>
+    <title>All owners</title>
+</head>
+    <body>
+        <h2>All owners page</h2>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+            <th:block th:if="${ownerList}!=null"/>
+                <tr th:each ="owner : ${ownerList}" th:class="${owner.id}%2>0?odd:even">
+                    <td> <a th:href="@{/owner?id_owner={id}(id=${owner.id})}"/><label th:utext="${owner.id}"/>
+                    <td th:utext="${owner.name}"/>
+                    <td th:utext="${owner.sec_name}"/>
+                </tr>
+        </table>
+        <div th:insert="~{footer :: copy}"></div>
+    </body>
+</html>

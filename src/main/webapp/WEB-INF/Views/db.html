@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th><h2>Database Schema</h2></th>
+        </tr>
+        <tr>
+            <td>
+                <img th:src="@{/image/db.PNG}" alt="FineBase">
+            </td>
+        </tr>
+    </table>
+    <div th:insert="~{footer :: copy}"></div>
+</body>
+</html>

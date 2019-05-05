@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/tables.css"/>
+    <title>All fines</title>
+</head>
+<body>
+<h2>All fines page</h2>
+<table border="1">
+    <tr>
+        <th>Fine type ID</th>
+        <th>Fine title</th>
+        <th>Fine fee</th>
+
+    </tr>
+    <tr th:each ="fineType : ${finesTypes} " th:class="${fineType.id}%2>0?odd:even">
+        <td th:utext="${fineType.id}"/>
+        <td th:utext="${fineType.fine_title}"/>
+        <td th:utext="${fineType.fine_fee}"/>
+    </tr>
+</table>
+<div th:insert="~{footer :: copy}"></div>
+</body>
+</html>

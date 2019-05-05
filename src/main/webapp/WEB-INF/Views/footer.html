@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<div th:fragment="copy">
+        <form action="/index">
+            <input class="smallButton" type="submit" value="<< To index" />
+        </form>
+    <p>&copy; 2019 Oleg Larionov</p>
+</div>
+<p>
+<div th:fragment="copyIndex">
+    © 2019 Oleg Larionov
+</div>
+</body>
+</html>

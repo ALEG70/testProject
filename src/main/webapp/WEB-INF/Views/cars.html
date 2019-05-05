@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/tables.css}"/>
+    <title>All cars</title>
+</head>
+<body>
+<h2>All cars page</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Maker</th>
+        <th>Model</th>
+        <th>Lic. Plate</th>
+    </tr>
+    <tr th:each ="car : ${carsList}" th:class="${car.id}%2>0?odd:even">
+        <td> <a th:href="@{./car?id={id}(id=${car.id})}"/><label th:utext="${car.id}"/></td>
+        <td> <a th:href="@{./cars?maker={maker}(maker=${car.maker})}"/><label th:utext="${car.maker}"/></td>
+        <td th:utext="${car.model}"></td>
+        <td th:utext="${car.license_plate}"></td>
+    </tr>
+</table>
+<div th:insert="~{footer :: copy}"></div>
+</body>
+</html>

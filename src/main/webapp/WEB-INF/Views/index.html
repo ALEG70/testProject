@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+        <title>Fine finder index page!</title>
+    </head>
+    <body>
+        <h2>Fine finder index page!</h2>
+        <table>
+            <tr>
+                <td>
+                    <h3>Main</h3>
+                </td>
+                <td>
+                    <form action="/formFineByOwner">
+                        <input class="mainButton" type="submit" value="Search from" />
+                    </form>
+                </td>
+                <td>
+                    <form action="/topFines" method="GET">
+
+                        <input class="mainButton" type="submit" value="Top Fines" />
+                    </form>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Service</h3>
+                </td>
+                <td>
+                    <form action="/cars" method="GET">
+                        <input type="number" name="id" value="" hidden/>
+                        <input type="text" name="model" value="%" hidden/>
+                        <input type="number" name="id_owner" value="" hidden/>
+                        <input class="mainButton" type="submit" value="All cars">
+                    </form>
+                </td>
+                <td>
+                    <form action="/fineTypes" method="GET">
+                        <input class="mainButton" type="submit" value="All fines types" />
+                    </form>
+                </td>
+                <td>
+                    <form action="/allOwners" method="GET">
+                        <input class="mainButton" type="submit" value="All owners" />
+                    </form>
+                </td>
+                <td>
+                    <form action="/fines" method="GET">
+                        <input class="mainButton" type="submit" value="All fines" />
+                    </form>
+                </td>
+                <td>
+                    <form action="/db">
+                        <input class="mainButton" type="submit" value="Show DB" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+     </body>
+    <div th:insert="~{footer :: copy}"></div>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <p>
+            <h1>Error page</h1>
+        <p>
+        <label>Sorry, service temporary unavailable.</label></p>
+        <label th:text="${url}"></label>
+        <label th:text="${exception.printStackTrace()}"></label>
+        <div th:insert="~{footer :: copy}"></div>
+    </body>
+</html>

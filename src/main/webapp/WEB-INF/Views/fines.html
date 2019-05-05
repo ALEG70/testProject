@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/tables.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+        <title>Fines</title>
+    </head>
+    <body>
+        <h2>Fines</h2>
+        <th:block th:if="${finesList.size() != 0}">
+            <table border="1">
+                <tr>
+                    <th>Fine ID</th>
+                    <th>Fine title</th>
+                    <th>Fine fee</th>
+                    <th>Owner name</th>
+                    <th>Owner surname</th>
+                    <th>Car Maker</th>
+                    <th>Car Model</th>
+                    <th>Lic. plate</th>
+                </tr>
+                <tr th:each ="fine : ${finesList}" th:class="${fine.id_fine}%2>0?odd:even">
+                    <td th:utext="${fine.id_fine}"/>
+                    <td th:utext="${fine.type.fine_title}"/>
+                    <td th:utext="${fine.type.fine_fee}"/>
+                    <td th:utext="${fine.car.owner.name}"/>
+                    <td th:utext="${fine.car.owner.sec_name}"/>
+                    <td th:utext="${fine.car.maker}"/>
+                    <td th:utext="${fine.car.model}"/>
+                    <td th:utext="${fine.car.license_plate}"/>
+                </tr>
+            </table>
+        </th:block>
+        <th:block th:if="${finesList.size() == 0}">
+            <p><h3>Can't find such fine...</h3>
+        </th:block>
+            <form action="/formFineByOwner" method="GET">
+                <input class="smallButton" type="submit" value="<< To search" />
+            </form>
+        <div th:insert="~{footer :: copy}"/>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/tables.css}"/>
+    <title>Top fines</title>
+</head>
+<body>
+<h2>Top <label th:utext="${limit}"/> fines</h2>
+<table border="1">
+    <tr>
+        <th>Fine type ID</th>
+        <th>Fine title</th>
+        <th>Fine fee</th>
+        <th>Counter</th>
+
+    </tr>
+    <tr th:each ="fineType : ${finesTypes}">
+        <td th:utext="${fineType.id}"/>
+        <td th:utext="${fineType.fine_title}"/>
+        <td th:utext="${fineType.fine_fee}"/>
+        <td th:utext="${fineType.counter}"/>
+
+    </tr>
+</table>
+<p>* - You can change the number of fines to out by sending get request with another limit.
+    for example .../topFines?limit=2 ...</p>
+<div th:insert="~{footer :: copy}"></div>
+</body>
+</html>

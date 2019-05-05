@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Car ID:<label th:utext="${car_id}"/></title>
+    </head>
+    <body>
+    <h2>Car</h2>
+    <table border="1">
+        <tr>
+            <td>Maker</td>
+            <td th:utext="${car.maker}"/>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td th:utext="${car.model}"/>
+        </tr>
+        <tr>
+            <td>License plate</td>
+            <td th:utext="${car.license_plate}"/>
+        </tr>
+        <tr>
+            <td>Owner name</td>
+            <td th:utext="${car.owner.name}"/>
+        </tr>
+        <tr>
+            <td>Owner surname</td>
+            <td th:utext="${car.owner.sec_name}"/>
+        </tr>
+    </table>
+    <form action="/formFineByOwner" method="GET">
+        <input type="submit" value="<< To search" />
+    </form>
+    <div th:insert="~{footer :: copy}"></div>
+    </body>
+</html>
